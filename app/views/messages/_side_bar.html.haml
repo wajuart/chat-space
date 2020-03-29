@@ -1,0 +1,19 @@
+.chat-side
+  .side-header
+    .side-header__box
+      %p.side-header__box__user-name
+        masa
+      %ul.side-header__box__menu
+        %li.side-header__box__menu__new-group
+          = link_to "#", class:"side-header__box__menu" do
+            %i.far.fa-edit
+        %li.side-header__box__menu__edit-user
+          = link_to "#", class:"side-header__box__menu" do
+            %i.fa.fa-cog
+        
+  .groups
+    = link_to "#", class:"group" do
+      %p.group__group-name
+        teckcamp
+      %p.group__latest-message
+        まだメッセージがありません
