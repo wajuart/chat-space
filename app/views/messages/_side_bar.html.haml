@@ -1,21 +1,21 @@
 .chat-side
   .side-header
     .side-header__box
-      %p.side-header__box__user-name
+      .side-header__box__user-name
         = current_user.name
-      %ul.side-header__box__menu
-        %li.side-header__box__menu__new-group
+      .side-header__box__menu
+        .side-header__box__menu__new-group
           = link_to new_group_path do
-            %i.far.fa-edit
-        %li.side-header__box__menu__edit-user
+            = icon('fas', 'edit', class: 'icon')
+        .side-header__box__menu__edit-user
           = link_to edit_user_path(current_user) do
-            %i.fa.fa-cog
+            = icon('fas', 'cog', class: 'icon')
         
   .groups
     - current_user.groups.each do |group|
       .group
-        = link_to '#' do
-          %p.group__group-name
+        = link_to group_messages_path(group) do
+          .group__name
             = group.name
-          %p.group__latest-message
-            まだメッセージがありません
+          .group__message
+            = group.show_last_message

@@ -2,35 +2,39 @@
   .main-header
     .main-header__left-box
       .main-header__left-box__current-group
-        test
+        = @group.name
       .main-header__left-box__menber-list
-        Member : masa
+        Member : 
+        - @group.users.each do |group_user|  
+          = group_user.name
     .main-header__edit-btn
-      = link_to "#" do
+      -# = link_to "#" do
+      = link_to edit_group_path(@group) do
         Edit
   .messages
-    .message-1
-      .message-1__upper-info
-        .message-1__upper-info__talker
-          kazu
-        .message-1__upper-info__date
-          2020/03/27(fry) 12:30:40
-      .message-1__text
-        こんにちは
-    .message-2    
-      .message-2__upper-info
-        .message-2__upper-info__talker
-          masa
-        .message-2__upper-info__date
-          2020/03/27(fry) 19:30:40
-      .message-2__text
-        こんばんは
+    = render @messages
+    -# .message-1
+    -#   .message-1__upper-info
+    -#     .message-1__upper-info__talker
+    -#       kazu
+    -#     .message-1__upper-info__date
+    -#       2020/03/27(fry) 12:30:40
+    -#   .message-1__text
+    -#     こんにちは
+    -# .message-2    
+    -#   .message-2__upper-info
+    -#     .message-2__upper-info__talker
+    -#       masa
+    -#     .message-2__upper-info__date
+    -#       2020/03/27(fry) 19:30:40
+    -#   .message-2__text
+    -#     こんばんは
   .form
     = form_for [@group, @message] do |f|
-      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
-      .form__mask
-        = f.label :image, class: 'form__mask__image' do
-          = icon('fas', 'image', class: 'icon')
-          = f.file_field :image, class: 'hidden'
-      = f.submit 'Send', class: 'form__submit'
-          
+      .input-box
+        = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+        .input-box__image
+          = f.label :image, class: "input-box__image" do
+            = icon('far', 'image', class: 'icon')
+            = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'submit-btn'
