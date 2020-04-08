@@ -65,6 +65,8 @@ gem 'devise'
 
 gem 'carrierwave'
 
+gem 'fog-aws'
+
 gem 'mini_magick'
 
 group :production do

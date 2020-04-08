@@ -88,6 +88,7 @@
         line-height: 40px;
         border: solid 1px #38aef0; 
         margin: 28px 0;
+        cursor: pointer;
         a {
           color: #38aef0;
           text-decoration: none;
@@ -164,10 +165,12 @@
               right: 10px;
               line-height: 50px;
               font-size: 25px;
-              cursor: pointer;
+              .fa-image:before {
+                cursor: pointer;
+              } 
               .hidden {
                 display: none;
-              }
+             }
             } 
           }  
           .submit-btn {
